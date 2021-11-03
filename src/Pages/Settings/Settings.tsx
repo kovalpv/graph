@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Button, OverlayTrigger, Popover } from "react-bootstrap";
 
 import ThemeSelect from "./ThemeSelect";
+
 import "./Settings.css";
 
 const SettingsBody = (

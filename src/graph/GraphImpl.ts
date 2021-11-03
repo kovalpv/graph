@@ -1,15 +1,15 @@
 import { GraphValidate, GraphValidateMessage } from ".";
 import Factory from "./Factory";
 import {
+  ForeachCallback,
   Graph,
+  GraphCreate,
+  GraphNode,
+  GraphPath,
   Node,
   NodeIdentifier,
   Path,
-  GraphNode,
-  GraphPath,
-  ForeachCallback,
   ReduceCallback,
-  GraphCreate,
 } from "./interfaces";
 
 const HEAD_IDENTIFIER: NodeIdentifier = "head";

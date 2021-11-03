@@ -1,5 +1,6 @@
 import React from "react";
-import { Toast, ToastContainer, Alert } from "react-bootstrap";
+import { Alert, Toast, ToastContainer } from "react-bootstrap";
+
 import { ToastMessage } from "./interfaces";
 
 interface ToastsProps {

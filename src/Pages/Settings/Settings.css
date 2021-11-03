@@ -2,20 +2,20 @@
   position: absolute;
   top: 110px;
   right: -12px;
-  width: 64px;
-  background: var(--bs-gray-400) !important;
   z-index: 1031;
-  border-radius: 8px 0 0 8px;
+  width: 64px;
   text-align: center;
+  background: var(--bs-gray-400) !important;
+  border-radius: 8px 0 0 8px;
 }
 
 .settings-plugin .fa-cog {
-  color: var(--bs-light);
-  padding: 10px;
-  border-radius: 0 0 6px 6px;
   width: auto;
+  padding: 10px;
+  color: var(--bs-light);
+  border-radius: 0 0 6px 6px;
 }
 
 .settings-plugin__button {
-  padding-left: 0px !important;
+  padding-left: 0 !important;
 }

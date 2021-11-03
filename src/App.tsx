@@ -1,27 +1,30 @@
 import React, { useCallback, useState } from "react";
-import { Container, Row, Col, Button, Navbar, Form } from "react-bootstrap";
-import "./App.css";
+import {
+  Button, Col, Container, Form, Navbar, Row
+} from "react-bootstrap";
 
 import {
-  JsonEditor,
   GraphCanvas,
+  JsonEditor,
   NodesSelection,
-  Toasts,
-  useToasts,
   RouteCard,
+  Toasts,
   nextIdMessages,
+  useToasts,
 } from "./components";
-import { Node, Edge } from "./components/GraphCanvas/interfaces";
+import { Edge, Node } from "./components/GraphCanvas/interfaces";
 import { JsonFormat } from "./components/JsonEditor";
 import { ValidateError } from "./components/JsonEditor/ErrorList";
 import GraphFactory, {
-  dfs,
   Node as GraphNode,
-  NodeIdentifier,
   Path as GraphPath,
+  NodeIdentifier,
+  dfs,
 } from "./graph";
 import { ThemeProvider } from "./Pages";
 import Settings from "./Pages/Settings";
+
+import "./App.css";
 
 const json: JsonFormat = {
   nodes: [

@@ -7,7 +7,7 @@
 
 .json-editor__toolbar {
   position: relative;
-  padding: 8px 8px 8px 8px;
+  padding: 8px;
 }
 
 .json-editor__editor {
@@ -18,11 +18,12 @@
 
 .json-editor__errors {
   position: relative;
+  flex-grow: 1;
   height: calc(100vh - 404px);
-  flex-grow : 1;
   overflow-y: auto;
 }
 
+/* stylelint-disable selector-class-pattern */
 .CodeMirror {
   position: relative;
   height: 100%;

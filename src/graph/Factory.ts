@@ -1,5 +1,5 @@
 import {
-  GraphNode, NodeIdentifier, GraphPath, GraphTrail,
+  GraphNode, GraphPath, GraphTrail, NodeIdentifier,
 } from "./interfaces";
 import NodeImpl from "./NodeImpl";
 import PathImpl from "./PathImpl";

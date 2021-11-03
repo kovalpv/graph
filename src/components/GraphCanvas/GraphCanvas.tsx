@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import { DataSet } from "vis-data";
 import { Network } from "vis-network";
+
 import { Edge, Node } from "./interfaces";
 
 interface GraphCanvasProps {

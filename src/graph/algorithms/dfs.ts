@@ -1,6 +1,6 @@
 import { Stack } from "../../collections";
 import {
-  NodeIdentifier, GraphNode, GraphPath, Graph,
+  Graph, GraphNode, GraphPath, NodeIdentifier,
 } from "../interfaces";
 
 export interface DFSResult {

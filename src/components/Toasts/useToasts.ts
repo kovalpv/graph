@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+
 import { ToastMessage } from "./interfaces";
 
 const defaultToasts: ToastMessage[] = [];

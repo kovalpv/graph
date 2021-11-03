@@ -1,12 +1,13 @@
 import React, { useCallback, useRef } from "react";
+import { Button } from "react-bootstrap";
 import CodeMirror from "react-codemirror";
+
+import classNames from "classnames";
 import "codemirror/lib/codemirror.css";
 import "codemirror/mode/javascript/javascript";
-import { Button } from "react-bootstrap";
-import classNames from "classnames";
 
-import { formatter, validate } from "./json";
 import ErrorList, { ValidateError } from "./ErrorList";
+import { formatter, validate } from "./json";
 
 import "./JsonEditor.css";
 
