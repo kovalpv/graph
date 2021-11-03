@@ -1,0 +1,21 @@
+.settings-plugin {
+  position: absolute;
+  top: 110px;
+  right: -12px;
+  width: 64px;
+  background: var(--bs-gray-400) !important;
+  z-index: 1031;
+  border-radius: 8px 0 0 8px;
+  text-align: center;
+}
+
+.settings-plugin .fa-cog {
+  color: var(--bs-light);
+  padding: 10px;
+  border-radius: 0 0 6px 6px;
+  width: auto;
+}
+
+.settings-plugin__button {
+  padding-left: 0px !important;
+}

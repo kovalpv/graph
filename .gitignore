@@ -1,0 +1,9 @@
+# dependencies
+/.VSCodeCounter
+/node_modules
+/coverage
+/dist
+/public
+/.vscode
+
+yarn-error.log

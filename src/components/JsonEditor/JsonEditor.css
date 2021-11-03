@@ -1,0 +1,29 @@
+.json-editor {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.json-editor__toolbar {
+  position: relative;
+  padding: 8px 8px 8px 8px;
+}
+
+.json-editor__editor {
+  position: relative;
+  flex: 2;
+  overflow-y: auto;
+}
+
+.json-editor__errors {
+  position: relative;
+  height: calc(100vh - 404px);
+  flex-grow : 1;
+  overflow-y: auto;
+}
+
+.CodeMirror {
+  position: relative;
+  height: 100%;
+}
