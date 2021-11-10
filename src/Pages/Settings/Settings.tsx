@@ -1,19 +1,11 @@
 import React, { useRef } from "react";
-import { Button, OverlayTrigger, Popover } from "react-bootstrap";
+import { Button, OverlayTrigger } from "react-bootstrap";
 
-import ThemeSelect from "./ThemeSelect";
+import { OverlayChildren } from "react-bootstrap/Overlay";
+
+import SettingsBody from "./SettingsBody";
 
 import "./Settings.css";
-
-const SettingsBody = (
-  <Popover id="popover-basic">
-    <Popover.Header as="h3">Sidebar Style</Popover.Header>
-    <Popover.Body>
-      <p className="h6">Select theme</p>
-      <ThemeSelect />
-    </Popover.Body>
-  </Popover>
-);
 
 const Settings: React.FunctionComponent = () => {
   const target = useRef(null);
@@ -23,11 +15,16 @@ const Settings: React.FunctionComponent = () => {
       <OverlayTrigger
         trigger="click"
         placement="left"
-        overlay={SettingsBody}
+        overlay={SettingsBody as OverlayChildren}
         rootClose
       >
-        <Button variant="link" ref={target} className="settings-plugin__button">
-          <i className="fa fa-cog fa-4x"> </i>
+        <Button
+          variant="link"
+          ref={target}
+          className="settings-plugin__button"
+          data-testid="settings-btn"
+        >
+          <i className="fa fa-cog fa-4x" data-testid="settings-icon" />
         </Button>
       </OverlayTrigger>
     </div>

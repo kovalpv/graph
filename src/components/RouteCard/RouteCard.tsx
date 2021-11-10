@@ -16,22 +16,25 @@ const RouteCard: React.FunctionComponent<RouteCardProps> = ({
 }) => (
   <Card style={{ width: "18rem" }}>
     <Card.Body>
-      <Card.Title>{hasRoute ? "" : "Route not found"}</Card.Title>
+      <Card.Title>
+        {hasRoute ? "Route was found" : "Route not found"}
+      </Card.Title>
+
       <Card.Text>
-        <p>
-          Route from
-          {" "}
-          <strong>{start}</strong>
-          {" "}
-          to
-          {" "}
-          <strong>{end}</strong>
-        </p>
-        <p>
+        Route from
+        {" "}
+        <strong>{start}</strong>
+        {" "}
+        to
+        {" "}
+        <strong>{end}</strong>
+      </Card.Text>
+      {hasRoute ? (
+        <Card.Text>
           Distance is equals
           {distance}
-        </p>
-      </Card.Text>
+        </Card.Text>
+      ) : null}
     </Card.Body>
   </Card>
 );

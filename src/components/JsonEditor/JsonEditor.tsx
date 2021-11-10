@@ -17,7 +17,7 @@ export interface JsonFormat {
 }
 
 interface JsonEditorProps {
-  readonly className: string;
+  readonly className?: string;
   readonly value: JsonFormat;
   readonly errors: ValidateError[];
   readonly preSubmit?: () => void;

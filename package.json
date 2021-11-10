@@ -6,10 +6,12 @@
         "build": "esbuild src/index.tsx --bundle --minify --outfile=./public/app.js",
         "start": "node scripts/start.js",
         "test": "jest",
+        "test:cov": "jest --coverage --collectCoverageFrom=src/**/*.{ts,tsx} && jest-coverage-badges output ./artifacts/badges",
+        "test:cov-browser": "test:cov && coverage/lcov-report/index.html",
         "tslint": "tsc --noemit",
         "eslint": "eslint src/**/*.ts{,x}",
         "csslint": "stylelint src/**/*.css",
-        "lint": "yarn eslint && yarn tslint && yarn csslint"
+        "lint": "yarn eslint --fix && yarn tslint && yarn csslint --fix"
     },
     "keywords": [],
     "author": "",
@@ -17,10 +19,16 @@
     "description": "",
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
+        "@testing-library/dom": "^8.11.0",
+        "@testing-library/jest-dom": "^5.15.0",
+        "@testing-library/react": "^12.1.2",
+        "@testing-library/react-hooks": "^7.0.2",
+        "@testing-library/user-event": "^13.5.0",
         "bootstrap": "^5.1.3",
         "classnames": "^2.3.1",
         "codemirror": "^5.63.3",
         "esbuild": "^0.13.10",
+        "jest-coverage-badges": "^1.1.2",
         "react": "^17.0.2",
         "react-bootstrap": "^2.0.1",
         "react-codemirror": "^1.0.0",
@@ -43,15 +51,20 @@
         "esbuild-serve": "^1.0.1",
         "eslint": "^7.32.0",
         "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-prettier": "^8.3.0",
         "eslint-import-resolver-typescript": "^2.5.0",
         "eslint-plugin-css-import-order": "^1.0.2",
         "eslint-plugin-import": "^2.25.2",
         "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.26.1",
         "eslint-plugin-react-hooks": "^4.2.0",
         "eslint-plugin-sort-exports": "^0.6.0",
+        "husky": "^7.0.4",
         "jest": "^27.3.1",
+        "jest-badges": "^0.1.3",
         "jest-config": "^27.3.1",
+        "lint-staged": "^11.2.6",
         "live-server": "^1.2.1",
         "prettier": "^2.4.1",
         "stylelint": "^14.0.1",
@@ -62,5 +75,21 @@
         "stylelint-order": "^5.0.0",
         "stylelint-prettier": "^1.2.0",
         "typescript": "^4.4.4"
+    },
+    "lint-staged": {
+        "src/**/*.{ts,tsx}": [
+            "eslint src/**/*.ts{,x}",
+            "tsc --noemit",
+            "git add"
+        ],
+        "src/**/*.css": [
+            "stylelint src/**/*.css --fix",
+            "git add"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
     }
 }

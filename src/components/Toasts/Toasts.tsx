@@ -1,7 +1,8 @@
-import React from "react";
-import { Alert, Toast, ToastContainer } from "react-bootstrap";
+import React, { useCallback } from "react";
+import { Alert, ToastContainer } from "react-bootstrap";
 
 import { ToastMessage } from "./interfaces";
+import Toast from "./Toast";
 
 interface ToastsProps {
   readonly messages: ToastMessage[];
@@ -11,33 +12,38 @@ interface ToastsProps {
 const Toasts: React.FunctionComponent<ToastsProps> = ({
   messages,
   closeToast,
-}) => (
-  <ToastContainer position="bottom-end">
-    {messages?.map(({
-      id, title, message, closeOnlyHuman, isAlert,
-    }) => (
-      <Toast
-        key={`toast-${id}`}
-        style={{ padding: 0, margin: "0 0 8px 0" }}
-        onClose={() => closeToast(id)}
-        delay={4000}
-        autohide={!closeOnlyHuman}
-      >
-        <Toast.Header>
-          <strong className="me-auto">{title}</strong>
-        </Toast.Header>
-        <Toast.Body style={{ padding: 0, margin: 0 }} className="d-flex justify-content-center">
-          {isAlert ? (
-            <Alert variant="danger" style={{ padding: 8, margin: 0 }}>
+}) => {
+  const close = useCallback(
+    (id: number) => () => {
+      closeToast(id);
+    },
+    [closeToast]
+  );
+  return (
+    <ToastContainer position="bottom-end">
+      {messages?.map(({
+        id, title, message, closeOnlyHuman, isAlert,
+      }) => (
+        <Toast
+          key={`toast-${id}`}
+          title={title}
+          message={isAlert ? (
+            <Alert
+              variant="danger"
+              style={{
+                padding: 8,
+                margin: 0
+              }}
+            >
               {message}
             </Alert>
-          ) : (
-            message
-          )}
-        </Toast.Body>
-      </Toast>
-    ))}
-  </ToastContainer>
-);
+          ) : message}
+          closeOnlyHuman={closeOnlyHuman}
+          onClose={close(id)}
+        />
+      ))}
+    </ToastContainer>
+  );
+};
 
 export default Toasts;

@@ -105,6 +105,7 @@
         },
         "warnOnUnassignedImports": true
       }
-    ]
+    ],
+    "complexity": ["error", { "max": 12 }]
   }
 }

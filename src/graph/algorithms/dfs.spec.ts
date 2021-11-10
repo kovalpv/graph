@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable camelcase */
+import Factory from "../Factory";
 import GraphImpl from "../GraphImpl";
 import dfs from "./dfs";
 
@@ -244,5 +245,33 @@ describe("dfs", () => {
     expect(result.distance).toEqual(10);
 
     expect(result.path[0]).toEqual(path_01_02);
+  });
+
+  test("should ", () => {
+    const graph = new GraphImpl();
+
+    const {
+      paths: [path_01_02, path_01_03, path_02_04, path_03_04],
+    } = graph.create(
+      [
+        { id: "01", title: "1" },
+        { id: "02", title: "2" },
+        { id: "03", title: "3" },
+        { id: "04", title: "4" },
+      ],
+      [
+        { start: "01", end: "02", distance: 1 },
+        { start: "01", end: "03", distance: 1 },
+        { start: "02", end: "04", distance: 1 },
+        { start: "03", end: "04", distance: 1 },
+      ]
+    );
+    const result = dfs(graph, "01", "04");
+
+    expect(result.path.length).toEqual(2);
+    expect(result.distance).toEqual(2);
+
+    expect(result.path[0]).toEqual(path_01_03);
+    expect(result.path[1]).toEqual(path_03_04);
   });
 });

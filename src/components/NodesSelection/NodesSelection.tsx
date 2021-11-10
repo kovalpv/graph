@@ -26,6 +26,7 @@ const NodesSelection: React.FunctionComponent<NodesSelectionProps> = ({
         nodes={nodes}
         select={selectStart}
         selection={start}
+        data-testid="node-selection-start"
       />
     </Col>
     <Col>
@@ -34,6 +35,7 @@ const NodesSelection: React.FunctionComponent<NodesSelectionProps> = ({
         nodes={nodes}
         select={selectEnd}
         selection={end}
+        data-testid="node-selection-end"
       />
     </Col>
   </Row>

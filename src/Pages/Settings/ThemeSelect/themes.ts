@@ -1,9 +1,6 @@
-import React, { useCallback } from "react";
-import { Form } from "react-bootstrap";
+import { Theme } from "./interfaces";
 
-import { ThemeConsumer } from "./ThemeContext";
-
-const themes: [string, string][] = [
+const themes: Theme[] = [
   ["default", "default/bootstrap.min.css"],
   ["cerulean", "cerulean/bootstrap.min.css"],
   ["cosmo", "cosmo/bootstrap.min.css"],
@@ -32,39 +29,4 @@ const themes: [string, string][] = [
   ["zephyr", "zephyr/bootstrap.min.css"],
 ];
 
-interface ThemeSelectProps {
-  readonly theme: string;
-  readonly setTheme: (theme: string) => void;
-}
-
-const ThemeSelect: React.FunctionComponent<ThemeSelectProps> = ({
-  theme,
-  setTheme,
-}) => {
-  const change = useCallback(
-    (e) => {
-      setTheme(e.target.value);
-    },
-    [setTheme]
-  );
-
-  return (
-    <Form.Select value={theme} onChange={change}>
-      {themes.map(([themeName, file]) => (
-        <option key={`theme-${themeName}`} value={file}>
-          {themeName}
-        </option>
-      ))}
-    </Form.Select>
-  );
-};
-
-const ThemeSelectContainer = () => (
-  <ThemeConsumer
-    render={({ theme, setTheme }) => (
-      <ThemeSelect theme={theme} setTheme={setTheme} />
-    )}
-  />
-);
-
-export default ThemeSelectContainer;
+export default themes;
