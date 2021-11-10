@@ -31,4 +31,10 @@ describe("Stack", () => {
 
     expect(stack.isEmpty()).toBeFalsy();
   });
+
+  test("should throw error when try pop from empty stack", () => {
+    const stack = new Stack();
+
+    expect(() => stack.pop()).toThrow(/Stack empty./);
+  });
 });

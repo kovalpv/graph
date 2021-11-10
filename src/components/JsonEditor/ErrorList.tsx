@@ -7,7 +7,7 @@ export interface ValidateError {
 }
 
 interface ErrorsProps {
-  readonly className: string;
+  readonly className?: string;
   readonly errors: ValidateError[];
 }
 
@@ -16,9 +16,9 @@ const ErrorList: React.FunctionComponent<ErrorsProps> = ({
   errors,
 }) => (
   <div className={className}>
-    <ListGroup>
+    <ListGroup data-testid="list">
       {errors.map(({ id, message }) => (
-        <ListGroupItem key={`err-${id}`}>
+        <ListGroupItem key={`err-${id}`} data-testid="listitem">
           <Alert variant="danger">{message}</Alert>
         </ListGroupItem>
       ))}

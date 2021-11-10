@@ -31,4 +31,10 @@ describe("Queue", () => {
 
     expect(queue.isEmpty()).toBeFalsy();
   });
+
+  test("should throw error when try pop from empty queue", () => {
+    const queue = new Queue();
+
+    expect(() => queue.pop()).toThrow(/Queue empty./);
+  });
 });

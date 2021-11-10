@@ -1,20 +1,31 @@
 # Graph
 
+![coverage:statements](./artifacts/badges/badge-statements.svg)
+![coverage:functions](./artifacts/badges/badge-functions.svg)
+![coverage:lines](./artifacts/badges/badge-lines.svg) 
+
 The project implements graph algorithms in the typescript language and graph display.
 
-## Run develop mode
+## Requirements
+
+- Node > v10.x;
+- Yarn > v1.12;
+
+## Commands:
+
+### Run develop mode
 
 ```properties
     yarn start
 ```
 
-## Check types && styles
+### Check types && styles
 
 ```properties
     yarn lint
 ```
 
-## Run tests
+### Run tests
 
 To run project tests run the command:
 
@@ -22,13 +33,13 @@ To run project tests run the command:
     yarn test
 ```
 
-## Build project
+### Build project
 
 ```properties
     yarn start
 ```
 
-## Run application in docker
+### Run application in docker
 
 ```properties
     docker build . -t graph-web

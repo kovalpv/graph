@@ -25,10 +25,18 @@ const NodeSelection: React.FunctionComponent<NodeSelectionProps> = ({
     [select]
   );
   return (
-    <Form.Select onChange={change}>
-      <option value={EMPTY_VALUE}>{title}</option>
+    <Form.Select
+      onChange={change}
+      data-testid="node-select"
+      defaultValue={selection ?? EMPTY_VALUE}
+    >
+      <option value={EMPTY_VALUE} data-testid="node-select-item">{title}</option>
       {nodes.map(({ id, title: nodeTitle }) => (
-        <option key={`node-${id}`} value={id} selected={selection === id}>
+        <option
+          key={`node-${id}`}
+          value={id}
+          data-testid="node-select-item"
+        >
           {nodeTitle}
         </option>
       ))}
